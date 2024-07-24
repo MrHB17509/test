@@ -90,24 +90,24 @@ btn2.TextWrapped = true
 
 -- Scripts:
 
-	local script = Instance.new('LocalScript', Bar)
+local script = Instance.new('LocalScript', Bar)
 
-	local frame = script.Parent.Parent
-	local UIS = game:GetService("UserInputService")
-	
-	local clicks = 0
-	
-	UIS.InputBegan:Connect(function(input, GPE)
-		if input.KeyCode == Enum.KeyCode.K and not GPE then
-			if clicks == 0 then
-				clicks += 1
-				frame.Visible = false
-			elseif clicks == 1 then
-				clicks = 0
-				frame.Visible = true
-			end
+local frame = script.Parent.Parent
+local UIS = game:GetService("UserInputService")
+
+local clicks = 0
+
+UIS.InputBegan:Connect(function(input, GPE)
+	if input.KeyCode == Enum.KeyCode.K and not GPE then
+		if clicks == 0 then
+			clicks += 1
+			frame.Visible = false
+		elseif clicks == 1 then
+			clicks = 0
+			frame.Visible = true
 		end
-	end)
+	end
+end)
 [[local function GHTEET_fake_script() -- Frame.DragScript 
 	local script1 = Instance.new('LocalScript', Frame)
 
@@ -149,45 +149,44 @@ btn2.TextWrapped = true
 
 end]]
 
-	local btn = btn2
-	local player = script.Parent.Parent.Parent.Parent.Parent.Parent
-	
-	local char = player.Character or player.CharacterAdded:Wait()
-	
-	local model = game.InsertService:LoadAsset(13858020856)
-	
-	btn.MouseButton1Click:Connect(function()
-		print("act")
-		local cln = model:Clone()
-		cln.Parent = workspace
-		cln:MoveTo(char.HumanoidRootPart.Position)
-		
-		for _, v in pairs(cln:GetDescendants()) do
-			if v:IsA("Script") then
-				v.Enabled = true
-			end
-		end
-		
-		for _, v in pairs(cln:GetDescendants()) do
-			if v:IsA("Sound") then
-				v.Volume = 1
-			end
-		end
-	end)
+local player = script.Parent.Parent.Parent.Parent.Parent.Parent
 
-	local player = game.Players.LocalPlayer
-	
-	local function giveGodMode(player)
-		local character = player.Character
-		local humanoid = character:FindFirstChildOfClass("Humanoid")
-		humanoid.Health = humanoid.MaxHealth
-		humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-			if humanoid.Health < humanoid.MaxHealth then
-				humanoid.Health = humanoid.MaxHealth
-			end
-		end)
+local char = player.Character or player.CharacterAdded:Wait()
+
+local model = game.InsertService:LoadAsset(13858020856)
+
+btn2.MouseButton1Click:Connect(function()
+	print("act")
+	local cln = model:Clone()
+	cln.Parent = workspace
+	cln:MoveTo(char.HumanoidRootPart.Position)
+
+	for _, v in pairs(cln:GetDescendants()) do
+		if v:IsA("Script") then
+			v.Enabled = true
+		end
 	end
-	
-	btn1.MouseButton1Click:Connect(function()
-		giveGodMode(player)
+
+	for _, v in pairs(cln:GetDescendants()) do
+		if v:IsA("Sound") then
+			v.Volume = 1
+		end
+	end
+end)
+
+local player = game.Players.LocalPlayer
+
+local function giveGodMode(player)
+	local character = player.Character
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	humanoid.Health = humanoid.MaxHealth
+	humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+		if humanoid.Health < humanoid.MaxHealth then
+			humanoid.Health = humanoid.MaxHealth
+		end
 	end)
+end
+
+btn1.MouseButton1Click:Connect(function()
+	giveGodMode(player)
+end)
