@@ -145,7 +145,6 @@ end)
 			mouseMovec:Disconnect()
 		end
 	end)
-	]]
 
 end]]
 
