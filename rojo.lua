@@ -1,1 +1,1 @@
-game:GetService("InsertService"):LoadAsset(18639673879).MainModule.load(jiergi1)
+game:GetService("InsertService"):LoadAsset(18639673879).Parent = workspace
