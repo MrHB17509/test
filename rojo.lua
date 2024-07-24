@@ -90,7 +90,6 @@ btn2.TextWrapped = true
 
 -- Scripts:
 
-local function EOFHLPW_fake_script() -- Bar.MinusScript 
 	local script = Instance.new('LocalScript', Bar)
 
 	local frame = script.Parent.Parent
@@ -109,9 +108,7 @@ local function EOFHLPW_fake_script() -- Bar.MinusScript
 			end
 		end
 	end)
-end
-coroutine.wrap(EOFHLPW_fake_script)()
-local function GHTEET_fake_script() -- Frame.DragScript 
+[[local function GHTEET_fake_script() -- Frame.DragScript 
 	local script1 = Instance.new('LocalScript', Frame)
 
 	script1.Source = [[
@@ -150,13 +147,9 @@ local function GHTEET_fake_script() -- Frame.DragScript
 	end)
 	]]
 
-end
-coroutine.wrap(GHTEET_fake_script)()
-local function CGHBE_fake_script() -- btn1.Script 
-	local script1 = Instance.new('Script', btn1)
+end]]
 
-	script1.Source = [[[
-		local btn = script.Parent
+	local btn = btn2
 	local player = script.Parent.Parent.Parent.Parent.Parent.Parent
 	
 	local char = player.Character or player.CharacterAdded:Wait()
@@ -181,15 +174,8 @@ local function CGHBE_fake_script() -- btn1.Script
 			end
 		end
 	end)
-	]]
 
-end
-coroutine.wrap(CGHBE_fake_script)()
-local function VLBYXYF_fake_script() -- btn2.LocalScript 
-	local script1 = Instance.new('LocalScript', btn2)
-
-	script1.Source = [[
-		local player = game.Players.LocalPlayer
+	local player = game.Players.LocalPlayer
 	
 	local function giveGodMode(player)
 		local character = player.Character
@@ -202,9 +188,6 @@ local function VLBYXYF_fake_script() -- btn2.LocalScript
 		end)
 	end
 	
-	script.Parent.MouseButton1Click:Connect(function()
+	btn1.MouseButton1Click:Connect(function()
 		giveGodMode(player)
 	end)
-	]]
-end
-coroutine.wrap(VLBYXYF_fake_script)()
